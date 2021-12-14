@@ -5,55 +5,58 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviourPunCallbacks
+namespace Tanks
 {
-    static MainMenu instance;
-    private GameObject m_ui;
-    private Button m_joinGameButton;
-    void Awake()
+    public class MainMenu : MonoBehaviourPunCallbacks
     {
-        if (instance != null)
+        static MainMenu instance;
+        private GameObject m_ui;
+        private Button m_joinGameButton;
+        void Awake()
         {
-            DestroyImmediate(gameObject);
-            return;
+            if (instance != null)
+            {
+                DestroyImmediate(gameObject);
+                return;
+            }
+            instance = this;
+
+            m_ui = transform.FindAnyChild<Transform>("UI").gameObject;
+            m_joinGameButton = transform.FindAnyChild<Button>("JoinGameButton");
+
+            m_ui.SetActive(true);
+            m_joinGameButton.interactable = false;
         }
-        instance = this;
+        void Start()
+        {
 
-        m_ui = transform.FindAnyChild<Transform>("UI").gameObject;
-        m_joinGameButton = transform.FindAnyChild<Button>("JoinGameButton");
+        }
 
-        m_ui.SetActive(true);
-        m_joinGameButton.interactable = false;
-    }
-    void Start()
-    {
-        
-    }
+        // Update is called once per frame
+        void Update()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        }
 
-    public override void OnConnectedToMaster()
-    {
-        m_joinGameButton.interactable = true;
-    }
-    public override void OnEnable()
-    {
-        // Always call the base to add callbacks
-        base.OnEnable();
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-    public override void OnDisable()
-    {
-        // Always call the base to remove callbacks
-        base.OnDisable();
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        m_ui.SetActive(!PhotonNetwork.InRoom);
+        public override void OnConnectedToMaster()
+        {
+            m_joinGameButton.interactable = true;
+        }
+        public override void OnEnable()
+        {
+            // Always call the base to add callbacks
+            base.OnEnable();
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        public override void OnDisable()
+        {
+            // Always call the base to remove callbacks
+            base.OnDisable();
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            m_ui.SetActive(!PhotonNetwork.InRoom);
+        }
     }
 }
