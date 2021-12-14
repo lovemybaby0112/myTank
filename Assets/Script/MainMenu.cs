@@ -12,6 +12,7 @@ namespace Tanks
         static MainMenu instance;
         private GameObject m_ui;
         private Button m_joinGameButton;
+
         void Awake()
         {
             if (instance != null)
