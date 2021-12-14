@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using Tanks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ namespace Complete
         private float m_CurrentLaunchForce;         // The force that will be given to the shell when the fire button is released.
         private float m_ChargeSpeed;                // How fast the launch force increases, based on the max charge time.
         private bool m_Fired;                       // Whether or not the shell has been launched with this button press.
-
+        private GameObject tankTurret;
 
         public  override void OnEnable()
         {
@@ -115,6 +116,11 @@ namespace Complete
             m_ShootingAudio.clip = m_FireClip;
             m_ShootingAudio.Play();
             m_CurrentLaunchForce = m_MinLaunchForce;
+        }
+
+        private void TransTankTurret()
+        {
+            tankTurret = transform.FindAnyChild<Transform>("TankTurret").gameObject; 
         }
     }
 }

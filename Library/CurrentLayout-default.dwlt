@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 981
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 95
+  controlID: 37
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 17
+  controlID: 107
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 94
+  controlID: 108
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 27
+  controlID: 109
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -472,17 +472,17 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_OverrideSceneCullingMask: 0
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.499836, y: -13.376326, z: -1.4304047}
+    m_Target: {x: 1.1942282, y: 0.8155333, z: 1.9076743}
     speed: 2
-    m_Value: {x: -4.499836, y: -13.376326, z: -1.4304047}
+    m_Value: {x: 1.1942282, y: 0.8155333, z: 1.9076743}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -529,13 +529,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0075007416, y: 0.95088553, z: -0.30859333, w: 0.023112146}
+    m_Target: {x: -0.14014955, y: 0.7124331, z: -0.14873154, w: -0.6713246}
     speed: 2
-    m_Value: {x: 0.007500728, y: 0.9508838, z: -0.30859277, w: 0.023112105}
+    m_Value: {x: -0.14014952, y: 0.7124329, z: -0.14873151, w: -0.67132443}
   m_Size:
-    m_Target: 26.692383
+    m_Target: 3.9769447
     speed: 2
-    m_Value: 26.692383
+    m_Value: 3.9769447
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -588,9 +588,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: e2110000
       m_LastClickedID: 0
-      m_ExpandedIDs: 1ed3ffff46d3ffff2adaffff32daffffc4dafffff0dfffff1ae9ffff70eaffff98eaffff6cf1ffff74f1ffff4cfbffff
+      m_ExpandedIDs: 72f8ffff1e4700002047000022470000264700002a4700002e4700003047000032470000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -652,22 +652,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/_Completed-Assets/Scripts/Tank
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/_Completed-Assets/Scripts/Tank
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Student\Desktop\Newwork\myTank
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 19}
-    m_SelectedIDs: f4400000
-    m_LastClickedID: 16628
-    m_ExpandedIDs: 00000000c0400000c2400000c4400000c6400000c8400000ca400000f840000000ca9a3b
+    m_SelectedIDs: 48410000
+    m_LastClickedID: 16712
+    m_ExpandedIDs: 00000000c0400000c2400000c4400000c6400000c8400000d840000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -808,7 +808,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 984
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
