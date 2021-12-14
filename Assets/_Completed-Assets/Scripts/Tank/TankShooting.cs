@@ -23,6 +23,8 @@ namespace Complete
         private float m_CurrentLaunchForce;         // The force that will be given to the shell when the fire button is released.
         private float m_ChargeSpeed;                // How fast the launch force increases, based on the max charge time.
         private bool m_Fired;                       // Whether or not the shell has been launched with this button press.
+
+        private GameObject transAimSlider;
         private GameObject tankTurret;
 
         public  override void OnEnable()
@@ -42,6 +44,9 @@ namespace Complete
 
             // The rate that the launch force charges up is the range of possible forces by the max charge time.
             m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
+
+            tankTurret = transform.FindAnyChild<Transform>("TankTurret").gameObject;
+            transAimSlider = transform.FindAnyChild<Transform>("AimSlider").gameObject;
         }
 
 
@@ -82,6 +87,7 @@ namespace Complete
                 // ... launch the shell.
                 Fire ();
             }
+            TransTT();
         }
 
 
@@ -94,7 +100,7 @@ namespace Complete
             Rigidbody shellInstance =
                 Instantiate (m_Shell, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
 
-            photonView.RPC("FireOther", RpcTarget.Others, m_FireTransform.position);
+            photonView.RPC("FireOther", RpcTarget.Others, m_FireTransform.position , m_CurrentLaunchForce);
             // Set the shell's velocity to the launch force in the fire position's forward direction.
             shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward; 
 
@@ -106,21 +112,31 @@ namespace Complete
             m_CurrentLaunchForce = m_MinLaunchForce;
         }
 
+        private void TransTT()
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                tankTurret.transform.Rotate(new Vector3(0.0f, -180.0f, 0.0f) * Time.deltaTime);
+                transAimSlider.transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f) * Time.deltaTime);
+            }
+            else if (Input.GetKey(KeyCode.E))
+            {
+                tankTurret.transform.Rotate(new Vector3(0.0f, 180.0f, 0.0f) * Time.deltaTime);
+                transAimSlider.transform.Rotate(new Vector3(0.0f, 0.0f, -180.0f) * Time.deltaTime);
+            }
+        }
+
         [PunRPC]
-        private void FireOther(Vector3 pos)
+        private void FireOther(Vector3 pos ,float cLF)
         {
             m_Fired = true;
             Rigidbody shellInstance =
-               Instantiate(m_Shell, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
-            shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward;
+               Instantiate(m_Shell, pos, m_FireTransform.rotation) as Rigidbody;
+            shellInstance.velocity = cLF * m_FireTransform.forward;
             m_ShootingAudio.clip = m_FireClip;
             m_ShootingAudio.Play();
-            m_CurrentLaunchForce = m_MinLaunchForce;
+            cLF = m_MinLaunchForce;
         }
 
-        private void TransTankTurret()
-        {
-            tankTurret = transform.FindAnyChild<Transform>("TankTurret").gameObject; 
-        }
     }
 }
