@@ -1657,4 +1657,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainScene.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: E:/Unity/myTank/Build/myTank.exe
+  playerPath: C:/Users/Student/Desktop/Newwork/myTank/Build/myTank.exe
